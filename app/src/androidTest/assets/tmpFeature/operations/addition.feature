@@ -15,6 +15,7 @@ Feature: Add two numbers
     | 0    | 1    | 1.0 |
     | 1    | 1    | 2.0 |
 
+
   Scenario Outline: Enter two digits per number and press =
     Given I have a CalculatorActivity
     When I press <num1>

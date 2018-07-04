@@ -1,3 +1,4 @@
+@calculateTwo
 Feature: Calculate a result
   Perform an arithmetic operation on two numbers using a mathematical operator
   """The purpose of this feature is to illustrate how existing step-definitions

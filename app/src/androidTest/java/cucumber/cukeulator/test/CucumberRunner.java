@@ -22,7 +22,7 @@ import cucumber.api.android.CucumberInstrumentationCore;
  */
 @RunWith(AndroidJUnit4.class)
 @CucumberOptions(
-        features = "features"
+        features = "features", glue = {"cucumber.cukeulator.test.two"}, tags = {"@calculateTwo"}
 )
 public class CucumberRunner extends MonitoringInstrumentation {
 

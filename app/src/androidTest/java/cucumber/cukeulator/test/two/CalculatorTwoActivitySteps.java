@@ -1,7 +1,8 @@
-package cucumber.cukeulator.test;
+package cucumber.cukeulator.test.two;
 
 import android.app.Activity;
 import android.support.test.rule.ActivityTestRule;
+import android.util.Log;
 
 import org.junit.Rule;
 
@@ -31,19 +32,17 @@ import static org.junit.Assert.assertNotNull;
  * The options need to at least specify features = "features". Features must be placed inside
  * assets/features/ of the test project (or a subdirectory thereof).
  */
-public class CalculatorActivitySteps {
+public class CalculatorTwoActivitySteps {
 
     /**
-     * Since {@link CucumberRunner} and {@link cucumber.api.android.CucumberInstrumentationCore} have the control over the
+     * Since {@link } and {@link cucumber.api.android.CucumberInstrumentationCore} have the control over the
      * test lifecycle, activity test rules must not be launched automatically. Automatic launching of test rules is only
      * feasible for JUnit tests. Fortunately, we are able to launch the activity in Cucumber's {@link Before} method.
      */
     @Rule
-    ActivityTestRule rule = new ActivityTestRule<>(CalculatorActivity.class, false, false);
+    public static ActivityTestRule rule = new ActivityTestRule<>(CalculatorActivity.class, false, false);
 
-    public CalculatorActivitySteps(SomeDependency dependency) {
-        assertNotNull(dependency);
-    }
+
 
     /**
      * We launch the activity in Cucumber's {@link Before} hook.
@@ -54,6 +53,7 @@ public class CalculatorActivitySteps {
     @Before
     public void launchActivity() throws Exception {
         rule.launchActivity(null);
+        Log.d("TESTCUKE", "launchActivity 1");
     }
 
     /**

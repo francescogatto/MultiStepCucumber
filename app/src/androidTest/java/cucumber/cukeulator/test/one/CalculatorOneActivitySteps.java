@@ -1,10 +1,12 @@
-package cucumber.cukeulator.test;
+package cucumber.cukeulator.test.one;
 
 import android.app.Activity;
 import android.support.test.rule.ActivityTestRule;
+import android.util.Log;
 
 import org.junit.Rule;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -12,10 +14,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.cukeulator.CalculatorActivity;
 import cucumber.cukeulator.R;
+import cucumber.cukeulator.test.CucumberRunner;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.assertNotNull;
@@ -31,7 +33,8 @@ import static org.junit.Assert.assertNotNull;
  * The options need to at least specify features = "features". Features must be placed inside
  * assets/features/ of the test project (or a subdirectory thereof).
  */
-public class CalculatorBisActivitySteps {
+
+public class CalculatorOneActivitySteps {
 
     /**
      * Since {@link CucumberRunner} and {@link cucumber.api.android.CucumberInstrumentationCore} have the control over the
@@ -41,6 +44,7 @@ public class CalculatorBisActivitySteps {
     @Rule
     ActivityTestRule rule = new ActivityTestRule<>(CalculatorActivity.class, false, false);
 
+
     /**
      * We launch the activity in Cucumber's {@link Before} hook.
      * See the notes above for the reasons why we are doing this.
@@ -48,7 +52,7 @@ public class CalculatorBisActivitySteps {
      * @throws Exception any possible Exception
      */
     @Before
-    public void launchActivity() throws Exception {
+    public void launchActivity(Scenario scenario) throws Exception {
         rule.launchActivity(null);
     }
 
@@ -69,13 +73,49 @@ public class CalculatorBisActivitySteps {
         return rule.getActivity();
     }
 
-    @Given("^I have a CalculatorActivity Test")
+    @Given("I have a CalculatorActivity Test")
     public void I_have_a_CalculatorActivity_Test() {
 
-        assertNotNull(getActivity());
+       // assertNotNull(getActivity());
     }
 
-    @Then("^I should see the activity and continue with other test")
+    @When("I press {digit}")
+    public void I_press_d(final int d) {
+        switch (d) {
+            case 0:
+                onView(withId(R.id.btn_d_0)).perform(click());
+                break;
+            case 1:
+                onView(withId(R.id.btn_d_1)).perform(click());
+                break;
+            case 2:
+                onView(withId(R.id.btn_d_2)).perform(click());
+                break;
+            case 3:
+                onView(withId(R.id.btn_d_3)).perform(click());
+                break;
+            case 4:
+                onView(withId(R.id.btn_d_4)).perform(click());
+                break;
+            case 5:
+                onView(withId(R.id.btn_d_5)).perform(click());
+                break;
+            case 6:
+                onView(withId(R.id.btn_d_6)).perform(click());
+                break;
+            case 7:
+                onView(withId(R.id.btn_d_7)).perform(click());
+                break;
+            case 8:
+                onView(withId(R.id.btn_d_8)).perform(click());
+                break;
+            case 9:
+                onView(withId(R.id.btn_d_9)).perform(click());
+                break;
+        }
+    }
+
+    @Then("I should see the activity and continue with other test")
     public void I_should_see_the_activity_and_continue() {
 
     }

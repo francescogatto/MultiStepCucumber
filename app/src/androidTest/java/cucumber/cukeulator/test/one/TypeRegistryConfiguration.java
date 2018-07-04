@@ -1,14 +1,12 @@
-package cucumber.cukeulator.test;
+package cucumber.cukeulator.test.one;
 
 import java.util.Locale;
 
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
 import io.cucumber.cucumberexpressions.ParameterType;
-import io.cucumber.cucumberexpressions.ParameterTypeRegistry;
 import io.cucumber.cucumberexpressions.Transformer;
 
-import static java.text.DateFormat.getDateInstance;
 import static java.util.Locale.ENGLISH;
 
 public class TypeRegistryConfiguration implements TypeRegistryConfigurer {
